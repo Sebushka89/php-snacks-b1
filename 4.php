@@ -6,21 +6,21 @@ $class = [
   [
     'name' => 'John',
     'last_name' => 'Smith',
-    'scores' => [
+    'votes' => [
       9,8,7,6
     ]
   ],
   [
     'name' => 'Sara',
     'last_name' => 'Powels',
-    'scores' => [
+    'votes' => [
       5,8,2,5
     ]
   ],
   [
     'name' => 'Eric',
     'last_name' => 'Scott',
-    'scores' => [
+    'votes' => [
       6,9,8,4
     ]
   ],
@@ -36,19 +36,12 @@ $class = [
   </head>
   <body>
     <?php
-      foreach ($class as $student) { ?>
-    <strong> Student: <?php echo $student['name'] . ' ' . $student['last_name']; ?>
-    </strong>
-    <?php
-        $sum = 0;
-        foreach ($student['scores'] as $score) {
-          $sum = $sum + $score;
-        }
-        $totalScores = count($student['scores']);
-        $avg = $sum / $totalScores; ?>
-    <p>Average: <?php echo $avg; ?>
-    </p>
-      <?php
-    } ?>
+       for ($x = 0; $x < count($class); $x++) {
+        // faccio la media dei voti
+        $average = array_sum($class[$x]['votes']) / count($class[$x]['votes']);
+        // stampo il tutto
+        echo "Name: {$class[$x]['name']} <br> Surname: {$class[$x]['surname']} <br> Average votes: {$average} <br> <hr>";
+      };
+    ?>
   </body>
 </html>
