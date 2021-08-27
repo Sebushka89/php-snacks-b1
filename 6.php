@@ -35,24 +35,40 @@
      <link rel="stylesheet" href="style.css">
      </head>
      <body>
-         <?php foreach ($db as $ruolo => $persone) {
-                 if ($ruolo == 'teachers') { ?>
+        <!--<?php// foreach ($db as $ruolo => $persone) {
+                 //if ($ruolo == 'teachers') { ?>
                     <div class="grey">
                     <?php
-                    } else { ?>
+                    //} else { ?>
                     <div class="green">
-                    <?php }
-                    echo $ruolo . '<br>';
-                    echo '<br>';
-                    foreach ($persone as $persona) {
-                    echo $persona['name'] . ' ';
-                    echo $persona['lastname'] . '<br>';
-                    echo '<br>';
-                    }?>
+                    <?php// }
+                    //echo $ruolo . '<br>';
+                    //echo '<br>';
+                    //foreach ($persone as $persona) {
+                    //echo $persona['name'] . ' ';
+                    //echo $persona['lastname'] . '<br>';
+                    //echo '<br>';
+                    //}?>
                 </div>
             <?php
+                //}
+            ?>-->
+
+            <div class=grey>
+            <?php
+                for ($i=0; $i < count($db['teachers']); $i++) {
+                echo "{$db['teachers'][$i]['name']} {$db['teachers'][$i]['lastname']} <br/>";
                 }
             ?>
+            </div>
+
+            <div class=green>
+            <?php
+            for ($x=0; $x < count($db['pm']); $x++) {
+                echo "{$db['pm'][$x]['name']} {$db['pm'][$x]['lastname']} <br/>";
+                }
+            ?>
+
             <style>
                 * {
                     margin: 0;
@@ -60,15 +76,13 @@
                     box-sizing:border-box;
                 }
                 .green {
-                    background-color: green;
+                    background-color: lightgreen;
                     width: 50%;
-                    height: 100px;
                     float: left;
                 }
                 .grey {
-                    background-color: grey;
+                    background-color: lightgrey;
                     width: 50%;
-                    height: 100px;
                     float: left;
                 }
             </style>
